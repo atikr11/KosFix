@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CivicWatch.Pages.HomePage" Shell.NavBarIsVisible="False" BackgroundColor="#F8FAFF">
+    <ScrollView>
+        <VerticalStackLayout Padding="18" Spacing="14">
+            <VerticalStackLayout>
+                <Label Text="Hello there" Style="{StaticResource H1}" />
+                <Label Text="Help make your community better" TextColor="{StaticResource Muted}" />
+            </VerticalStackLayout>
+            <Border BackgroundColor="{StaticResource Primary}" StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="18">
+                <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnReport" /></Border.GestureRecognizers>
+                <Grid ColumnDefinitions="56,*" ColumnSpacing="14">
+                    <Border BackgroundColor="White" StrokeThickness="0" StrokeShape="RoundRectangle 28" WidthRequest="52" HeightRequest="52">
+                        <Label Text="📷" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                        <Label Text="Report a problem" TextColor="White" FontSize="17" FontAttributes="Bold" />
+                        <Label Text="Take a photo, add location, choose a category." TextColor="#E6EEFF" FontSize="13" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Border Style="{StaticResource Card}" BackgroundColor="{StaticResource Soft}" Padding="14">
+                    <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnAll" /></Border.GestureRecognizers>
+                    <VerticalStackLayout><Label Text="My reports" TextColor="{StaticResource Muted}" FontSize="13" /><Label x:Name="Total" FontSize="26" FontAttributes="Bold" /></VerticalStackLayout>
+                </Border>
+                <Border Grid.Column="1" Style="{StaticResource Card}" BackgroundColor="#E6F6EC" Padding="14">
+                    <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnAll" /></Border.GestureRecognizers>
+                    <VerticalStackLayout><Label Text="Resolved" TextColor="{StaticResource Muted}" FontSize="13" /><Label x:Name="Done" FontSize="26" FontAttributes="Bold" /></VerticalStackLayout>
+                </Border>
+            </Grid>
+            <Grid ColumnDefinitions="*,Auto">
+                <Label Text="Recent reports" FontSize="16" FontAttributes="Bold" />
+                <Label Grid.Column="1" Text="See all" TextColor="{StaticResource Primary}" FontSize="13">
+                    <Label.GestureRecognizers><TapGestureRecognizer Tapped="OnAll" /></Label.GestureRecognizers>
+                </Label>
+            </Grid>
+            <CollectionView x:Name="List" ItemTemplate="{StaticResource ReportRow}" SelectionMode="Single" SelectionChanged="OnPick" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

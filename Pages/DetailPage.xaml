@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CivicWatch.Pages.DetailPage" Shell.NavBarIsVisible="False" BackgroundColor="#F8FAFF">
+    <ScrollView>
+        <VerticalStackLayout Padding="18" Spacing="8">
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12" Margin="0,0,0,8">
+                <Button Text="←" Clicked="OnBack" WidthRequest="40" HeightRequest="40" Padding="0" CornerRadius="20" BackgroundColor="{StaticResource Soft}" TextColor="{StaticResource Ink}" />
+                <Label Grid.Column="1" Text="Report details" Style="{StaticResource H1}" FontSize="20" VerticalOptions="Center" />
+            </Grid>
+            <Border BackgroundColor="{StaticResource Soft}" StrokeThickness="0" StrokeShape="RoundRectangle 14" HeightRequest="160">
+                <Grid><Label x:Name="Emoji" FontSize="60" HorizontalOptions="Center" VerticalOptions="Center" /><Image x:Name="Photo" Aspect="AspectFill" IsVisible="False" /></Grid>
+            </Border>
+            <Label x:Name="TitleLbl" FontSize="18" FontAttributes="Bold" />
+            <Grid ColumnDefinitions="*,Auto"><Label Text="Report ID" TextColor="{StaticResource Muted}" /><Label x:Name="IdLbl" Grid.Column="1" FontAttributes="Bold" /></Grid>
+            <Border Style="{StaticResource Card}"><Label x:Name="LocLbl" /></Border>
+            <Label Text="Description" Style="{StaticResource Field}" />
+            <Label x:Name="DescLbl" TextColor="{StaticResource Muted}" />
+            <Label Text="Status" Style="{StaticResource Field}" />
+            <VerticalStackLayout x:Name="Timeline" Margin="4,8,0,0" />
+            <Button Text="View location" Style="{StaticResource Primary}" Clicked="OnLocation" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

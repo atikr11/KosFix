@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:m="clr-namespace:CivicWatch.Models"
+             x:Class="CivicWatch.App">
+    <Application.Resources>
+        <Color x:Key="Primary">#2F6BFF</Color>
+        <Color x:Key="Ink">#0F1B3D</Color>
+        <Color x:Key="Muted">#6B7691</Color>
+        <Color x:Key="Line">#DFE5F1</Color>
+        <Color x:Key="Soft">#EAF1FF</Color>
+
+        <Style TargetType="Label"><Setter Property="TextColor" Value="{StaticResource Ink}" /></Style>
+        <Style TargetType="Entry"><Setter Property="TextColor" Value="{StaticResource Ink}" /><Setter Property="PlaceholderColor" Value="{StaticResource Muted}" /></Style>
+        <Style x:Key="H1" TargetType="Label"><Setter Property="FontSize" Value="24" /><Setter Property="FontAttributes" Value="Bold" /></Style>
+        <Style x:Key="Field" TargetType="Label"><Setter Property="FontSize" Value="14" /><Setter Property="FontAttributes" Value="Bold" /><Setter Property="Margin" Value="0,10,0,0" /></Style>
+        <Style x:Key="Primary" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource Primary}" /><Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="12" /><Setter Property="HeightRequest" Value="50" /><Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style x:Key="Secondary" TargetType="Button" BasedOn="{StaticResource Primary}">
+            <Setter Property="BackgroundColor" Value="White" /><Setter Property="TextColor" Value="{StaticResource Ink}" />
+            <Setter Property="BorderColor" Value="{StaticResource Line}" /><Setter Property="BorderWidth" Value="1" />
+        </Style>
+        <Style x:Key="Card" TargetType="Border">
+            <Setter Property="BackgroundColor" Value="White" /><Setter Property="Stroke" Value="{StaticResource Line}" />
+            <Setter Property="StrokeShape" Value="RoundRectangle 14" /><Setter Property="Padding" Value="10" />
+        </Style>
+
+        <DataTemplate x:Key="ReportRow" x:DataType="m:Report">
+            <Border Style="{StaticResource Card}" Margin="0,0,0,10">
+                <Grid ColumnDefinitions="62,*" ColumnSpacing="12">
+                    <Border BackgroundColor="{StaticResource Soft}" StrokeThickness="0" StrokeShape="RoundRectangle 10" WidthRequest="62" HeightRequest="62">
+                        <Label Text="{Binding Emoji}" FontSize="28" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2">
+                        <Label Text="{Binding Title}" FontAttributes="Bold" />
+                        <Label Text="{Binding Location}" TextColor="{StaticResource Muted}" FontSize="12" />
+                        <Label Text="{Binding DateText}" TextColor="{StaticResource Muted}" FontSize="12" />
+                        <Border BackgroundColor="{Binding ChipBg}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="9,2" HorizontalOptions="Start">
+                            <Label Text="{Binding StatusText}" TextColor="{Binding ChipFg}" FontSize="11" />
+                        </Border>
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </Application.Resources>
+</Application>

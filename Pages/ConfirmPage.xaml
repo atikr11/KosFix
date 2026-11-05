@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CivicWatch.Pages.ConfirmPage" Shell.NavBarIsVisible="False" Shell.TabBarIsVisible="False" BackgroundColor="#F8FAFF">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="14">
+            <Label Text="Report submitted!" Style="{StaticResource H1}" HorizontalOptions="Center" Margin="0,24,0,0" />
+            <Border BackgroundColor="#E6F6EC" StrokeThickness="0" StrokeShape="RoundRectangle 46" WidthRequest="92" HeightRequest="92">
+                <Label Text="✓" FontSize="44" TextColor="{StaticResource Primary}" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Border>
+            <Label Text="Your report has been sent to the appropriate authority." TextColor="{StaticResource Muted}" HorizontalTextAlignment="Center" />
+            <Border Style="{StaticResource Card}" BackgroundColor="{StaticResource Soft}" Padding="14">
+                <VerticalStackLayout><Label Text="Report ID" TextColor="{StaticResource Muted}" HorizontalOptions="Center" FontSize="13" /><Label x:Name="IdLbl" FontSize="22" FontAttributes="Bold" HorizontalOptions="Center" /></VerticalStackLayout>
+            </Border>
+            <Border Style="{StaticResource Card}">
+                <VerticalStackLayout><Label x:Name="TitleLbl" FontAttributes="Bold" /><Label x:Name="LocLbl" TextColor="{StaticResource Muted}" FontSize="13" /></VerticalStackLayout>
+            </Border>
+            <Button Text="View report" Style="{StaticResource Primary}" Clicked="OnView" Margin="0,12,0,0" />
+            <Button Text="Back to Home" BackgroundColor="Transparent" TextColor="{StaticResource Primary}" Clicked="OnHome" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CivicWatch.Pages.SignInPage" Shell.NavBarIsVisible="False" BackgroundColor="White">
+    <ScrollView>
+        <VerticalStackLayout Padding="24,56,24,24" Spacing="12">
+            <Label Text="📍" FontSize="56" HorizontalOptions="Center" />
+            <Label Text="CivicWatch" Style="{StaticResource H1}" FontSize="30" HorizontalOptions="Center" Margin="0,0,0,24" />
+            <Label Text="Welcome back" Style="{StaticResource H1}" />
+            <Label Text="Sign in to help improve your community" TextColor="{StaticResource Muted}" Margin="0,0,0,12" />
+            <Entry Placeholder="Email address" Keyboard="Email" />
+            <Entry Placeholder="Password" IsPassword="True" />
+            <Button Text="Sign in" Style="{StaticResource Primary}" Clicked="OnSignIn" Margin="0,8,0,0" />
+            <Label Text="or continue with" TextColor="{StaticResource Muted}" HorizontalOptions="Center" FontSize="13" />
+            <Button Text="Sign in with Google" Style="{StaticResource Secondary}" Clicked="OnSignIn" />
+            <Label Text="Don't have an account? Create account" HorizontalOptions="Center" FontSize="13" Margin="0,12,0,0" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
