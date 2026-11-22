@@ -13,6 +13,7 @@
             </Border>
             <Label x:Name="TitleLbl" FontSize="18" FontAttributes="Bold" />
             <Grid ColumnDefinitions="*,Auto"><Label Text="Report ID" TextColor="{StaticResource Muted}" /><Label x:Name="IdLbl" Grid.Column="1" FontAttributes="Bold" /></Grid>
+            <Label Text="Simulated report. Nothing was sent." TextColor="{StaticResource Muted}" />
             <Border Style="{StaticResource Card}"><Label x:Name="LocLbl" /></Border>
             <Label Text="Description" Style="{StaticResource Field}" />
             <Label x:Name="DescLbl" TextColor="{StaticResource Muted}" />

@@ -7,7 +7,7 @@ public partial class ConfirmPage : ContentPage
     public string Id
     {
         get => _id;
-        set { _id = value; var r = ReportStore.Find(value); if (r is null) return; IdLbl.Text = r.Id; TitleLbl.Text = r.Title; LocLbl.Text = "📍 " + r.Location; }
+        set { _id = value; var r = ReportStore.Find(value); if (r is null) return; IdLbl.Text = r.Id; TitleLbl.Text = r.Title; LocLbl.Text = "📍 " + r.Location + " · " + r.Municipality; }
     }
     public ConfirmPage() => InitializeComponent();
     async void OnView(object? s, EventArgs e) => await Shell.Current.GoToAsync($"//main/reports");

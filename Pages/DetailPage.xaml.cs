@@ -11,7 +11,7 @@ public partial class DetailPage : ContentPage
 
     void Show(Report r)
     {
-        Emoji.Text = r.Emoji; TitleLbl.Text = r.Title; IdLbl.Text = r.Id; LocLbl.Text = "📍 " + r.Location; DescLbl.Text = r.Description;
+        Emoji.Text = r.Emoji; TitleLbl.Text = r.Title; IdLbl.Text = r.Id; LocLbl.Text = "📍 " + r.Location + " · " + r.Municipality; DescLbl.Text = r.Description;
         if (r.PhotoPath is not null) { Photo.Source = ImageSource.FromFile(r.PhotoPath); Photo.IsVisible = true; }
 
         Timeline.Children.Clear();
@@ -30,7 +30,7 @@ public partial class DetailPage : ContentPage
                 Children =
                 {
                     new Label { Text = Report.Name(s), FontAttributes = FontAttributes.Bold, TextColor = cur ? Theme.Primary : done ? Theme.Ink : Theme.Muted },
-                    new Label { Text = s <= r.Status ? r.DateText : "Pending", FontSize = 12, TextColor = Theme.Muted },
+                    new Label { Text = cur ? "Current demo status" : done ? "Earlier stage" : "Pending", FontSize = 12, TextColor = Theme.Muted },
                 },
             };
             Timeline.Children.Add(new HorizontalStackLayout { Spacing = 12, Margin = new Thickness(0, 0, 0, 14), Children = { dot, text } });

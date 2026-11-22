@@ -3,7 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CivicWatch.Pages.MyReportsPage" Shell.NavBarIsVisible="False" BackgroundColor="#F8FAFF">
     <Grid RowDefinitions="Auto,Auto,*" Padding="18" RowSpacing="12">
-        <Label Text="My Reports" Style="{StaticResource H1}" />
+        <VerticalStackLayout>
+            <Label Text="My Reports" Style="{StaticResource H1}" />
+            <Label Text="Local demo reports. Nothing was sent." TextColor="{StaticResource Muted}" />
+        </VerticalStackLayout>
         <ScrollView Grid.Row="1" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
             <HorizontalStackLayout x:Name="Chips" Spacing="8" />
         </ScrollView>

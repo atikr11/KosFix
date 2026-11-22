@@ -2,24 +2,17 @@ using CivicWatch.Services;
 namespace CivicWatch.Pages;
 public partial class ReportPage : ContentPage
 {
-    const string DemoLocation = "Main Street, Prishtina"; // replace with real GPS + reverse geocoding later
-    bool _hasLoc; string? _photo;
+    string? _photo;
 
     public ReportPage()
     {
         InitializeComponent();
+        MunicipalityPicker.ItemsSource = ReportStore.Municipalities.ToList();
         Cat.ItemsSource = ReportStore.Categories.Select(c => c.Name).ToList();
     }
 
     async void OnBack(object? s, EventArgs e) => await Shell.Current.GoToAsync("..");
     void OnDesc(object? s, TextChangedEventArgs e) => Count.Text = $"{e.NewTextValue?.Length ?? 0}/500";
-
-    void OnLoc(object? s, EventArgs e)
-    {
-        _hasLoc = true;
-        LocBtn.Text = "📍 " + DemoLocation;
-        LocBtn.BackgroundColor = Theme.GreenBg; LocBtn.TextColor = Theme.Green;
-    }
 
     async void OnPhoto(object? s, EventArgs e)
     {
@@ -39,8 +32,11 @@ public partial class ReportPage : ContentPage
     async void OnSubmit(object? s, EventArgs e)
     {
         if (Cat.SelectedItem is not string cat) { Err.Text = "Choose a category to continue."; return; }
-        if (!_hasLoc) { Err.Text = "Set the problem location to continue."; return; }
-        var r = ReportStore.Add(cat, DemoLocation, Desc.Text ?? "", _photo);
+        if (MunicipalityPicker.SelectedItem is not string municipality) { Err.Text = "Choose a demo municipality to continue."; return; }
+        var location = LocationEntry.Text?.Trim();
+        if (string.IsNullOrEmpty(location)) { Err.Text = "Enter a test street or landmark."; return; }
+        Err.Text = "";
+        var r = ReportStore.Add(cat, municipality, location, Desc.Text ?? "", _photo);
         await Shell.Current.GoToAsync($"confirm?id={r.Id}");
     }
 }
