@@ -6,7 +6,7 @@
         <VerticalStackLayout Padding="18" Spacing="14">
             <VerticalStackLayout>
                 <Label Text="Hello there" Style="{StaticResource H1}" />
-                <Label Text="Help make your community better" TextColor="{StaticResource Muted}" />
+                <Label Text="Local reporting demo. Nothing is sent." TextColor="{StaticResource Muted}" />
             </VerticalStackLayout>
             <Border BackgroundColor="{StaticResource Primary}" StrokeThickness="0" StrokeShape="RoundRectangle 18" Padding="18">
                 <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnReport" /></Border.GestureRecognizers>

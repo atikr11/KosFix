@@ -8,6 +8,7 @@
                 <Button Text="←" Clicked="OnBack" WidthRequest="40" HeightRequest="40" Padding="0" CornerRadius="20" BackgroundColor="{StaticResource Soft}" TextColor="{StaticResource Ink}" />
                 <Label Grid.Column="1" Text="Report a problem" Style="{StaticResource H1}" FontSize="20" VerticalOptions="Center" />
             </Grid>
+            <Label Text="Simulation only. Reports stay in this app and are not sent." TextColor="{StaticResource Muted}" />
             <Border x:Name="PhotoBox" BackgroundColor="{StaticResource Soft}" Stroke="#8FB0FF" StrokeDashArray="4,3" StrokeShape="RoundRectangle 16" HeightRequest="170" Padding="0">
                 <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnPhoto" /></Border.GestureRecognizers>
                 <Grid>
@@ -21,13 +22,15 @@
             </Border>
             <Label Text="Choose problem category" Style="{StaticResource Field}" />
             <Picker x:Name="Cat" Title="Select category" TextColor="{StaticResource Ink}" TitleColor="{StaticResource Muted}" />
-            <Label Text="Set problem location" Style="{StaticResource Field}" />
-            <Button x:Name="LocBtn" Text="📍 Use current location" Clicked="OnLoc" BackgroundColor="{StaticResource Soft}" TextColor="{StaticResource Primary}" CornerRadius="12" HeightRequest="48" />
+            <Label Text="Choose municipality" Style="{StaticResource Field}" />
+            <Picker x:Name="MunicipalityPicker" Title="Select demo municipality" TextColor="{StaticResource Ink}" TitleColor="{StaticResource Muted}" />
+            <Label Text="Problem location" Style="{StaticResource Field}" />
+            <Entry x:Name="LocationEntry" Placeholder="Test street or landmark" MaxLength="150" TextColor="{StaticResource Ink}" />
             <Label Text="Describe the problem" Style="{StaticResource Field}" />
             <Editor x:Name="Desc" Placeholder="Add a short description of the issue..." MaxLength="500" HeightRequest="100" AutoSize="Disabled" TextChanged="OnDesc" TextColor="{StaticResource Ink}" />
             <Label x:Name="Count" Text="0/500" HorizontalOptions="End" FontSize="12" TextColor="{StaticResource Muted}" />
             <Label x:Name="Err" TextColor="#DC2626" FontSize="13" />
-            <Button Text="Submit report" Style="{StaticResource Primary}" Clicked="OnSubmit" />
+            <Button Text="Save simulated report" Style="{StaticResource Primary}" Clicked="OnSubmit" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

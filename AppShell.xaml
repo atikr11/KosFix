@@ -9,6 +9,7 @@
     <TabBar Route="main">
         <ShellContent Title="Home" Route="home" ContentTemplate="{DataTemplate pages:HomePage}" />
         <ShellContent Title="My Reports" Route="reports" ContentTemplate="{DataTemplate pages:MyReportsPage}" />
+        <ShellContent Title="Mock Inbox" Route="inbox" ContentTemplate="{DataTemplate pages:MockInboxPage}" />
         <ShellContent Title="Profile" Route="profile" ContentTemplate="{DataTemplate pages:ProfilePage}" />
     </TabBar>
 </Shell>

@@ -4,6 +4,7 @@ public class Report
 {
     public string Id { get; set; } = "";
     public string Title { get; set; } = "";
+    public string Municipality { get; init; } = "";
     public string Location { get; set; } = "";
     public string Description { get; set; } = "";
     public string Emoji { get; set; } = "📍";

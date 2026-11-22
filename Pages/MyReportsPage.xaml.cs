@@ -10,7 +10,7 @@ public partial class MyReportsPage : ContentPage
     void Build()
     {
         Chips.Children.Clear();
-        foreach (var f in new[] { "All", "Submitted", "In progress", "Resolved" })
+        foreach (var f in new[] { "All" }.Concat(Enum.GetValues<Status>().Select(Report.Name)))
         {
             bool on = f == _filter;
             var b = new Button
